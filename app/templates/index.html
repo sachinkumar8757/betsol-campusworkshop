@@ -14,6 +14,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/custom.css') }}">
+    
 
 </head>
 
@@ -72,7 +73,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button id="edit-task-btn" type="button" class="btn btn-primary">Save </button>
+                    <button id="edit-task-modal" type="button" class="btn btn-primary">Save </button>
                 </div>
             </div>
         </div>
@@ -117,7 +118,7 @@
                                 class="fa fa-pen fa-1" aria-hidden="true"></i></button></td>
 
                     <td><button class="btn btn-outline-secondary btn-sm remove" data-source="{{item.id}}"
-                            type="button">Delete</button></td>
+                            type="button"><i class="fa-solid fa-trash"></i></button></td>
                 </tr>
                 {% endfor %}
 
