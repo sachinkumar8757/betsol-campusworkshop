@@ -34,10 +34,6 @@ def update_status(task_id):
     return jsonify(result)
 
 
-
-
-
-
 @app.route("/create", methods=['POST'])
 def create():
     """ recieves post requests to add new task """
@@ -46,6 +42,13 @@ def create():
     result = {'success': True, 'response': 'Done'}
     return jsonify(result)
 
+@app.route("/update/<int:task_id>", methods=['PUT'])
+def update(task_id):
+    """ recieves post requests to update new task """
+    data = request.get_json()
+    db_helper.update_task_entry(data['content'],task_id)
+    result = {'success': True, 'response': 'Done'}
+    return jsonify(result)
 
 @app.route("/fetch-max-id",methods=['GET'])
 def fetch_max_id():
@@ -59,5 +62,4 @@ def homepage():
     """ returns rendered homepage """
     items = db_helper.fetch_todo()
     return render_template("index.html", items=items)
-
 
